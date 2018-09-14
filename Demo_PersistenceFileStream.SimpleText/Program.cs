@@ -13,9 +13,9 @@ namespace Demo_PersistenceFileStream
         {
             string textFilePath = "Data\\Data.txt";
 
-            SimpleTextReadWrite(textFilePath);
+            //SimpleTextReadWrite(textFilePath);
             //StructuredTextReadWrite(textFilePath);
-            //FileStreamReadWrite(textFilePath);
+            FileStreamReadWrite(textFilePath);
 
             Console.WriteLine("\nPress any key to exit.");
             Console.ReadKey();
@@ -33,8 +33,8 @@ namespace Demo_PersistenceFileStream
             string dataFileContents = "";
 
             // initialize strings with addresses
-            address01 = "Flintstone,Fred,301 Cobblestone Way,Bedrock,70777\n";
-            address02 = "Rubble,Barney,303 Cobblestone Way,Bedrock,70777\n";
+            address01 = "1,Flintstone,Fred,301 Cobblestone Way,Bedrock,70777\n";
+            address02 = "2,Rubble,Barney,303 Cobblestone Way,Bedrock,70777\n";
 
             Console.WriteLine("The following addresses will be added to the text file.\n");
             Console.WriteLine(address01 + address02);
@@ -78,15 +78,6 @@ namespace Demo_PersistenceFileStream
             // empty the text file and add the addresses
             File.WriteAllText(dataFile, dataString);
 
-            Console.WriteLine("Address added successfully.\n");
-
-            Console.WriteLine("Read and display the addresses from the text file. Press any key to continue.\n");
-            Console.ReadKey();
-
-            // read all addresses from the text file into a single string
-            dataFileContents = File.ReadAllText(dataFile);
-            Console.WriteLine(dataFileContents);
-
             Console.WriteLine("Read and display the addresses from the text file. Press any key to continue.\n");
             Console.ReadKey();
 
@@ -102,6 +93,7 @@ namespace Demo_PersistenceFileStream
         {
             StringBuilder dataStringBuilder = new StringBuilder();
 
+            string id;
             string lastName;
             string firstName;
             string address;
@@ -115,6 +107,7 @@ namespace Demo_PersistenceFileStream
             string dataString;
 
             // use the StringBuilder class to build the string of addresses
+            id = "1";
             lastName = "Flintstone";
             firstName = "Fred";
             address = "301 Cobblestone Way";
@@ -123,6 +116,7 @@ namespace Demo_PersistenceFileStream
             zip = "70777";
 
             dataStringBuilder.AppendLine(
+                id + delineator +
                 lastName + delineator +
                 firstName + delineator +
                 address + delineator +
@@ -130,6 +124,7 @@ namespace Demo_PersistenceFileStream
                 state + delineator +
                 zip);
 
+            id = "2";
             lastName = "Rubble";
             firstName = "Barney";
             address = "303 Cobblestone Way";
@@ -138,6 +133,7 @@ namespace Demo_PersistenceFileStream
             zip = "70777";
 
             dataStringBuilder.AppendLine(
+                id + delineator +
                 lastName + delineator +
                 firstName + delineator +
                 address + delineator +
@@ -167,12 +163,13 @@ namespace Demo_PersistenceFileStream
                 // use the Split method and the delineator on the array to separate each property into an array of properties
                 string[] properties = addresses[index].Split(delineator);
 
-                Console.WriteLine("Last Name: {0}", properties[0]);
-                Console.WriteLine("First Name: {0}", properties[1]);
-                Console.WriteLine("Address: {0}", properties[2]);
-                Console.WriteLine("City: {0}", properties[3]);
-                Console.WriteLine("State: {0}", properties[4]);
-                Console.WriteLine("Zip: {0}", properties[5]);
+                Console.WriteLine("Id: {0}", properties[0]);
+                Console.WriteLine("Last Name: {0}", properties[1]);
+                Console.WriteLine("First Name: {0}", properties[2]);
+                Console.WriteLine("Address: {0}", properties[3]);
+                Console.WriteLine("City: {0}", properties[4]);
+                Console.WriteLine("State: {0}", properties[5]);
+                Console.WriteLine("Zip: {0}", properties[6]);
 
                 Console.WriteLine();
             }
@@ -197,8 +194,8 @@ namespace Demo_PersistenceFileStream
                 StreamWriter sWriter = new StreamWriter(wfileStream);
 
                 // initialize strings with addresses 
-                address01 = "Flintstone,Fred,301 Cobblestone Way,Bedrock,70777\n";
-                address02 = "Rubble,Barney,303 Cobblestone Way,Bedrock,70777\n";
+                address01 = "1,Flintstone,Fred,301 Cobblestone Way,Bedrock,70777\n";
+                address02 = "2,Rubble,Barney,303 Cobblestone Way,Bedrock,70777\n";
 
                 Console.WriteLine("The following addresses will be added to the text file.\n");
                 Console.WriteLine(address01 + address02);
