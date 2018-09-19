@@ -11,33 +11,33 @@ namespace Demo_PersistenceFileStream
     {
         static void Main(string[] args)
         {
-            string textFilePath = "Data\\Data.txt";
+            string textFilePath = "Data\\Data.csv";
 
-            ObjectListReadWrite(textFilePath);
+            ObjectListCsvReadWrite(textFilePath);
 
             Console.WriteLine("\nPress any key to exit.");
             Console.ReadKey();
         }
 
-        static void ObjectListReadWrite(string dataFile)
+        static void ObjectListCsvReadWrite(string dataFile)
         {
-            List<Character> CharacterClassListWrite = new List<Character>();
+            List<Character> characters = new List<Character>();
 
-            List<string> CharacterStringListRead = new List<string>(); ;
+            List<string> charactersListOfString = new List<string>(); ;
             List<Character> CharacterClassListRead = new List<Character>(); ;
 
             // initialize a list of Character objects
-            CharacterClassListWrite = InitializeListOfCharacters();
+            characters = InitializeListOfCharacters();
 
             Console.WriteLine("The following characters will be added to Data.txt.\n");
             // display list of Character objects
-            DisplayCharacters(CharacterClassListWrite);
+            DisplayCharacters(characters);
 
             Console.WriteLine("\nAdd characters to text file. Press any key to continue.\n");
             Console.ReadKey();
 
             // build the list of strings and write to the text file line by line
-            WriteCharactersToTextFile(CharacterClassListWrite, dataFile);
+            WriteToCsvFile(characters, dataFile);
 
             Console.WriteLine("Characters added successfully.\n");
 
@@ -46,10 +46,10 @@ namespace Demo_PersistenceFileStream
 
 
             // build the list of Character class objects from the list of strings
-            CharacterClassListRead = ReadCharactersFromTextFile(dataFile);
+            characters = ReadFromCsvFile(dataFile);
 
             // display list of Characters objects
-            DisplayCharacters(CharacterClassListRead);
+            DisplayCharacters(characters);
         }
 
         static List<Character> InitializeListOfCharacters()
@@ -81,9 +81,9 @@ namespace Demo_PersistenceFileStream
             return CharacterList;
         }
 
-        static void DisplayCharacters(List<Character> CharacterClassList)
+        static void DisplayCharacters(List<Character> characters)
         {
-            foreach (Character character in CharacterClassList)
+            foreach (Character character in characters)
             {
                 Console.WriteLine();
                 Console.WriteLine($"Id: {character.Id}");
@@ -97,7 +97,7 @@ namespace Demo_PersistenceFileStream
             }
         }
 
-        static void WriteCharactersToTextFile(List<Character> characterClassLIst, string dataFile)
+        static void WriteToCsvFile(List<Character> characterClassLIst, string dataFile)
         {
             string characterString;
 
@@ -121,7 +121,7 @@ namespace Demo_PersistenceFileStream
             File.WriteAllLines(dataFile, charactersStringListWrite);
         }
 
-        static List<Character> ReadCharactersFromTextFile(string dataFile)
+        static List<Character> ReadFromCsvFile(string dataFile)
         {
             const char delineator = ',';
 

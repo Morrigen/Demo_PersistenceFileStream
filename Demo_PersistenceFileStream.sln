@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo_PersistenceFileStream.SimpleText", "Demo_PersistenceFileStream.SimpleText\Demo_PersistenceFileStream.SimpleText.csproj", "{BEA349CF-FBDA-47A0-AAAB-D5F255F2DA0F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_Documentation", "_Documentation\_Documentation.csproj", "{B2CB62A3-AB10-42F2-9770-EBF9B86D38DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo_PersistenceFileStream.Object", "Demo_PersistenceFileStream.Object\Demo_PersistenceFileStream.Object.csproj", "{E0A964F6-757A-47F2-8E87-B439713FF9FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo_PersistenceFileStream.Object.Starter", "Demo_PersistenceFileStream.Object\Demo_PersistenceFileStream.Object.Starter.csproj", "{E0A964F6-757A-47F2-8E87-B439713FF9FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +30,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1AFB2490-3488-4916-B86D-DDAF28A15528}
 	EndGlobalSection
 EndGlobal
